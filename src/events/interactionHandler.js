@@ -11,7 +11,7 @@ module.exports = {
         const button = client.buttons.get(interaction.customId);
         if (!button) return;
         button.execute(interaction);
-      } else if (interaction.isSelectMenu()) { 
+      } else if (interaction.isStringSelectMenu()) { 
         const selectMenu = client.selectMenus.get(interaction.customId);
         if (!selectMenu) return;
         selectMenu.execute(interaction);

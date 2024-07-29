@@ -19,7 +19,7 @@ if (settings.mongoDB && settings.mongoDB.startsWith("mongodb+srv://")) {
 
 /* Event Loader */
 try {
-    fs.readdirSync("./src/events").filter(file => file.endsWith(".js")).forEach(async file => {
+    fs.readdirSync(`./src/events/`).filter(file => file.endsWith(".js")).forEach(async file => {
         const event = await require(`./src/events/${file}`);
         
         if (!event) return;
@@ -124,6 +124,8 @@ try {
 } catch(e) {
     console.log(`[UTIL] Araçlar yüklenirken bir hata ortaya çıktı:\n` + e); 
 }
+
+
 
 /* Error Handler */
 process.on('uncaughtException', err => console.log(err));

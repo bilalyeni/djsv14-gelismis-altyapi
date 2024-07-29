@@ -1,5 +1,6 @@
 /* Definitions */
 const { EmbedBuilder, ContextMenuCommandBuilder, SlashCommandBuilder, ApplicationCommandType } = require("discord.js");
+const config = require("../../../config.js");
 
 /* Command */
 module.exports =  {
@@ -19,6 +20,7 @@ module.exports =  {
 		const avatarEmbed = new EmbedBuilder()
 			.setTitle(`${user.tag} kişisinin avatarı`)
 			.setImage(user.displayAvatarURL({ dynamic: true }))
+			.setColor(config.normal)
 			.setFooter({ text: `${message.author.tag} tarafından istendi` })
         message.reply({ embeds: [avatarEmbed] });
     },
@@ -28,6 +30,7 @@ module.exports =  {
 		const avatarEmbed = new EmbedBuilder()
 			.setTitle(`${user.tag} kişisinin avatarı`)
 			.setImage(user.displayAvatarURL({ dynamic: true }))
+			.setColor(config.normal)
 			.setFooter({ text: `${interaction.member.user.tag} tarafından istendi` })
         interaction.reply({ embeds: [avatarEmbed] });
     }
